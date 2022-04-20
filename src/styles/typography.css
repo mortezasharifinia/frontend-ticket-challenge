@@ -1,0 +1,41 @@
+.title-1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 3.5rem;
+}
+
+.title-2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+}
+
+.title-3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+.body-1 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+}
+
+.body-2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+.caption-1 {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+.caption-2 {
+    font-size: 0.625rem;
+    font-weight: 400;
+    line-height: 1rem;
+}
