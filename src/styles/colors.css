@@ -1,9 +1,10 @@
 :root {
-    --primary: #25aefc;
-    --success: #41d852;
-    --info: #59aeff;
-    --warning: #ffe314;
-    --danger: #ff3a41;
+    --primary: #56C5D0;
+    --secondary: #48A4AC;
+    --success: #71CE2F;
+    --info: #1974FC;
+    --warning: #EFD10B;
+    --danger: #FF7D49;
     --text-primary: #343f54;
     --text-secondary: #fff;
     --sub-primary: #808289;
