@@ -13,7 +13,7 @@
           class="input input-code"
           :class="{ error: error, success: success }"
           type="number"
-          placeholder="*****"
+          placeholder="******"
           autocomplete="off"
           @focus="changeInputStatus"
           v-model="verificationCode"
