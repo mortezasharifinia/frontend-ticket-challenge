@@ -5,6 +5,10 @@
     --info: #1974FC;
     --warning: #EFD10B;
     --danger: #FF7D49;
+    --success-alpha: rgba(113, 206, 47, 0.25);
+    --info-alpha: rgba(25, 116, 252, 0.25);
+    --warning-alpha: rgba(239, 209, 11, 0.25);
+    --danger-alpha: rgba(255, 125, 73, 0.25);
     --text-primary: #343f54;
     --text-secondary: #fff;
     --sub-primary: #808289;
