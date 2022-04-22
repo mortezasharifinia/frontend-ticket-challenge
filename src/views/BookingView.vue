@@ -1,6 +1,9 @@
 <template>
   <div class="container main-container booking-container">
-    <stadium-plan></stadium-plan>
+    <stadium-plan
+      :stadiumMaps="stadiumMaps"
+      @selected-stage="getSeatsOfStage"
+    ></stadium-plan>
   </div>
 </template>
 
@@ -9,6 +12,20 @@ import StadiumPlan from "@/components/booking/StadiumPlan.vue";
 export default {
   components: {
     StadiumPlan,
+  },
+  created() {
+    this.$store.dispatch("booking/getStadiumMaps");
+  },
+  computed: {
+    stadiumMaps() {
+      return this.$store.getters["booking/getStadiumMaps"];
+    },
+  },
+  methods: {
+    getSeatsOfStage(map) {
+      const matchId = this.$route.params.matchId;
+      this.$store.dispatch("booking/getStadiumSeats", { map, matchId });
+    },
   },
 };
 </script>

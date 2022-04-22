@@ -1,7 +1,15 @@
 <template>
   <div class="stadium">
-    <div class="stage stage-1">1</div>
-    <div class="stage stage-2">2</div>
+    <div
+      v-for="(map, index) in stadiumMaps"
+      :key="map.id"
+      class="stage"
+      :class="`stage-${index + 1}`"
+      @click="$emit('selected-stage', map)"
+    >
+      {{ index + 1 }}
+    </div>
+    <!-- <div class="stage stage-2">2</div>
     <div class="stage stage-3">3</div>
     <div class="stage stage-4">4</div>
     <div class="stage stage-5">5</div>
@@ -9,7 +17,7 @@
     <div class="stage stage-7">7</div>
     <div class="stage stage-8">8</div>
     <div class="stage stage-9">9</div>
-    <div class="stage stage-10">10</div>
+    <div class="stage stage-10">10</div> -->
     <div class="volleyball-court">
       <div class="volleyball-net"></div>
     </div>
@@ -17,7 +25,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    stadiumMaps: {
+      type: Array,
+    },
+  },
+};
 </script>
 
 <style scoped>
