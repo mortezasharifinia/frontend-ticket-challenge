@@ -40,8 +40,8 @@
         <div class="seat">
           <p class="title-3">جایگاه: {{ selectedStage.index + 1 }}</p>
           <div>
-            <p class="body-1">ردیف: {{ selectedSeat.x }}</p>
-            <p class="body-1">صندلی: {{ selectedSeat.y }}</p>
+            <p class="body-1">ردیف: {{ selectedSeat.x + 1 }}</p>
+            <p class="body-1">صندلی: {{ selectedSeat.y + 1 }}</p>
           </div>
         </div>
         <div class="barcode">
@@ -193,6 +193,16 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
+.seat {
+  margin: 1rem 0;
+}
+
+.barcode {
+  height: 100px;
+  margin: 1rem 0;
+}
+
 .barcode > svg {
   width: 200px;
 }

@@ -11,30 +11,10 @@
       <span class="title-3">{{ index + 1 }}</span>
     </button>
   </div>
-  <!-- <recycle-scroller
-    class="selected-row"
-    :items="rowSeats"
-    key-field="id"
-    v-slot="{ item, index }"
-  >
-    <button
-      class="row"
-      :class="{ selected: selectedRow === index }"
-      @click="selectSeatsRow(index)"
-      :disabled="item.state"
-    >
-      <span class="title-3">راهرو {{ index + 1 }}</span>
-    </button>
-  </recycle-scroller> -->
 </template>
 
 <script>
-// import { RecycleScroller } from "vue-virtual-scroller";
-// import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 export default {
-  components: {
-    // RecycleScroller,
-  },
   props: {
     rowSeats: {
       type: Array,
