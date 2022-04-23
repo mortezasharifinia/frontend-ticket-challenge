@@ -20,7 +20,7 @@
       </div>
       <div class="col-6 volleyball-event-details">
         <template v-if="status">
-          <div>
+          <div class="centralized">
             <p class="title-3">
               {{ matchDate }}
             </p>
@@ -33,7 +33,7 @@
           </div>
         </template>
         <template v-else>
-          <div>
+          <div class="sm-hidden">
             <p class="title-2">{{ match.finalResult }}</p>
             <div class="results">
               <span
@@ -44,7 +44,7 @@
               >
             </div>
           </div>
-          <div>
+          <div class="centralized">
             <p class="body-2">{{ matchDate }}</p>
             <p class="caption-1">{{ matchHour }}</p>
           </div>
@@ -119,8 +119,10 @@ export default {
 <style scoped>
 .volleyball-event-container {
   width: 80%;
+  max-width: 800px;
   margin: 0.5rem 0;
 }
+
 .volleyball-event-button {
   width: 100%;
   min-height: 11rem;
@@ -180,9 +182,10 @@ export default {
 }
 
 .status {
-  display: inline-block;
-  width: 4rem;
-  padding: 0.1rem 0.25rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 4rem;
   border-radius: 1rem;
   background: var(--info);
   font-size: 0.625rem;
@@ -190,5 +193,23 @@ export default {
   line-height: 1rem;
   text-align: center;
   color: var(--text-secondary);
+}
+
+@media only screen and (max-width: 425px) {
+  .volleyball-event-container {
+    width: 90%;
+  }
+
+  .title-2 {
+    font-size: 0.8rem;
+  }
+
+  .title-3 {
+    font-size: 0.5rem;
+  }
+
+  .body-2 {
+    font-size: 0.7rem;
+  }
 }
 </style>

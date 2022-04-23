@@ -10,6 +10,7 @@ const state = {
   selectedStadiumMap: null,
   stadiumSeats: [],
   selectedSeat: null,
+  ticket: null,
 };
 
 // ##################################################################################
@@ -33,6 +34,9 @@ const getters = {
   },
   getStageSeats(state) {
     return state.stadiumSeats;
+  },
+  getTicket(state) {
+    return state.ticket;
   },
 };
 
@@ -82,6 +86,10 @@ const mutations = {
   SET_SELECTED_SEAT(state, seat) {
     state.selectedSeat = seat;
   },
+
+  SET_TICKET(state, ticket) {
+    state.ticket = ticket;
+  },
 };
 
 // ##################################################################################
@@ -125,10 +133,18 @@ const actions = {
     formData.append("x", seatPosition.x);
     formData.append("y", seatPosition.y);
     booking.bookTicket(mapId, formData).then((res) => {
-      console.log(res.data);
+      commit("SET_TICKET", res.data.data.ticket_id);
       router.push({
         name: "ticket",
       });
+      commit(
+        "global/SET_ERRORS",
+        {
+          type: "info",
+          message: "بلیط شما با موفقیت رزور شد",
+        },
+        { root: true }
+      );
     });
   },
 };

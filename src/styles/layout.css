@@ -9,6 +9,13 @@
     min-height: 100vh;
 }
 
+.centralized {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .col-12 {
     width: 100%;
 }
@@ -31,6 +38,9 @@
 
 
 @media only screen and (max-width: 768px) {
+    .md-col-12 {
+        width: 100%;
+    }
     .md-hidden {
         display: none;
     }

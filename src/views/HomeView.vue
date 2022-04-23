@@ -1,6 +1,6 @@
 <template>
   <div class="container main-container">
-    <div class="col-6 image-container sm-hidden">
+    <div class="col-6 image-container md-hidden">
       <img
         src="../assets/images/logo/volleyball-federation-logo.svg"
         alt="I.R.IRAN Volleyball Federation"
@@ -12,7 +12,7 @@
         :style="{ width: matchPictureState ? '100%' : '0' }"
       />
     </div>
-    <div class="col-6 sm-col-12 event-container">
+    <div class="col-6 md-col-12 event-container">
       <volleyball-event
         v-for="match in matches"
         :key="match.id"

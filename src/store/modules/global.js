@@ -3,6 +3,7 @@
 // ##################################################################################
 const state = {
   loading: false,
+  errors: null,
 };
 
 // ##################################################################################
@@ -12,6 +13,9 @@ const getters = {
   getLoading(state) {
     return state.loading;
   },
+  getErrors(state) {
+    return state.errors;
+  },
 };
 
 // ##################################################################################
@@ -20,6 +24,9 @@ const getters = {
 const mutations = {
   SET_LOADING(state, loading) {
     state.loading = loading;
+  },
+  SET_ERRORS(state, errors) {
+    state.errors = errors;
   },
 };
 

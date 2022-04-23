@@ -35,7 +35,7 @@ const routes = [
     name: "stage",
     component: () =>
       import(/* webpackChunkName: "stage" */ "../views/StageView.vue"),
-    beforeRouteEnter: (to, from, next) => {
+    beforeEnter: (to, from, next) => {
       if (
         store.getters["booking/getSelectedMatch"] &&
         store.getters["booking/getSelectedStadiumMap"]
@@ -51,16 +51,17 @@ const routes = [
     name: "ticket",
     component: () =>
       import(/* webpackChunkName: "stage" */ "../views/TicketView.vue"),
-    // beforeRouteEnter: (to, from, next) => {
-    //   if (
-    //     store.getters["booking/getSelectedMatch"] &&
-    //     store.getters["booking/getSelectedStadiumMap"] &&
-    //     store.getters["booking/getSelectedSeat"]
-    //   ) {
-    //     return next();
-    //   }
-    //   next("/");
-    // },
+    beforeEnter: (to, from, next) => {
+      if (
+        store.getters["booking/getSelectedMatch"] &&
+        store.getters["booking/getSelectedStadiumMap"] &&
+        store.getters["booking/getSelectedSeat"] &&
+        store.getters["booking/getTicket"]
+      ) {
+        return next();
+      }
+      next("/");
+    },
   },
   {
     path: "/about",
