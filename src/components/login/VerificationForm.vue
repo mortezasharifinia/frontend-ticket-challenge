@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="text-align: center">
     <h1 class="title-3">ورود با رمز یکبار مصرف</h1>
     <p class="body-2">کد ارسال شده به شماره همراه زیر را وارد کنید</p>
     <p class="body-1" style="margin-bottom: 2rem">{{ mobileNumber }}</p>

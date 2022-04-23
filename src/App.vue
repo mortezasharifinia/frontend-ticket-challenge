@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <!-- <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav> -->
-    <router-view />
+    <vue-page-transition name="fade">
+      <router-view />
+    </vue-page-transition>
     <vue-loading
       :active="isLoading"
       background-color="#f7f8fa"

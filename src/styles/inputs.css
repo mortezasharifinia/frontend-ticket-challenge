@@ -19,6 +19,7 @@
     color: var(--text-secondary);
     border: none;
     border-radius: 1rem;   
+    cursor: pointer;
 }
 
 .button[type="submit"] {

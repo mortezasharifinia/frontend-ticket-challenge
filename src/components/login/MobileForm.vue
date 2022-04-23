@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="text-align: center">
     <h1 class="title-3">ورود به سامانه فروش بلیط</h1>
     <p class="body-2" style="margin-bottom: 2rem">
       لطفا شماره تلفن همراه خود را وارد کنید
