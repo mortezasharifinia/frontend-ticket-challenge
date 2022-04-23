@@ -5,6 +5,7 @@ import { booking } from "@/services/booking";
 // ################################### State ########################################
 // ##################################################################################
 const state = {
+  selectedMatch: null,
   stadiumMaps: [],
   selectedStadiumMap: null,
   stadiumSeats: [],
@@ -15,6 +16,9 @@ const state = {
 // ################################## Getters #######################################
 // ##################################################################################
 const getters = {
+  getSelectedMatch(state) {
+    return state.selectedMatch;
+  },
   getStadiumMaps(state) {
     return state.stadiumMaps;
   },
@@ -36,6 +40,9 @@ const getters = {
 // ################################## Mutations #####################################
 // ##################################################################################
 const mutations = {
+  SET_SELECTED_MATCH(state, match) {
+    state.selectedMatch = match;
+  },
   SET_STADIUM_MAPS(state, stadiumMaps) {
     let temp = [];
     const length = stadiumMaps.length <= 10 ? 10 : stadiumMaps.length;
@@ -44,21 +51,23 @@ const mutations = {
         temp.push({
           id: stadiumMaps[i],
           status: "available",
+          index: i,
         });
       } else {
         temp.push({
           id: "unav" + Math.floor(Math.random() * 10000),
           status: "unavailable",
+          index: i,
         });
       }
       if (i > 10) {
         temp.push({
           id: stadiumMaps[i],
           status: "vip",
+          index: i,
         });
       }
     }
-    console.log(temp);
     state.stadiumMaps = temp;
   },
 
@@ -79,12 +88,23 @@ const mutations = {
 // ################################### Actions ######################################
 // ##################################################################################
 const actions = {
-  getStadiumMaps({ commit }) {
+  selectMatch({ commit }, match) {
+    commit("SET_SELECTED_MATCH", match);
     booking.getStadiumMap().then((res) => {
-      console.log(res.data.data.map_ids);
       commit("SET_STADIUM_MAPS", res.data.data.map_ids);
+      router.push({
+        name: "booking",
+        params: {
+          matchId: match.id,
+        },
+      });
     });
   },
+  // getStadiumMaps({ commit }) {
+  //   booking.getStadiumMap().then((res) => {
+  //     commit("SET_STADIUM_MAPS", res.data.data.map_ids);
+  //   });
+  // },
   getStadiumSeats({ commit }, { map, matchId }) {
     booking.getStadiumSeats(map.id).then((res) => {
       commit("SET_SELECTED_STADIUM_MAP", map);

@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     selectSeat(seat) {
-      console.log(seat);
       this.selectedSeat = seat;
       this.$emit("select-seat", seat);
     },

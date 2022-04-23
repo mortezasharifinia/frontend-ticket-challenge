@@ -13,9 +13,6 @@ export default {
   components: {
     StadiumPlan,
   },
-  created() {
-    this.$store.dispatch("booking/getStadiumMaps");
-  },
   computed: {
     stadiumMaps() {
       return this.$store.getters["booking/getStadiumMaps"];

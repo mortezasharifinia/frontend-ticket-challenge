@@ -110,12 +110,7 @@ export default {
   },
   methods: {
     bookingMatch() {
-      this.$router.push({
-        name: "booking",
-        params: {
-          matchId: this.match.id,
-        },
-      });
+      this.$store.dispatch("booking/selectMatch", this.match);
     },
   },
 };

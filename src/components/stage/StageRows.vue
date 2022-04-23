@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     selectSeatsRow(row) {
-      console.log(row);
       this.selectedRow = row;
       this.$emit("select-row", row);
     },

@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "@/store";
 
 Vue.use(VueRouter);
 
@@ -21,18 +22,45 @@ const routes = [
     name: "booking",
     component: () =>
       import(/* webpackChunkName: "booking" */ "../views/BookingView.vue"),
+    beforeEnter: (to, from, next) => {
+      if (store.state.booking.selectedMatch) {
+        return next();
+      } else {
+        return next("/");
+      }
+    },
   },
   {
     path: "/booking/:matchId/:stageId",
     name: "stage",
     component: () =>
       import(/* webpackChunkName: "stage" */ "../views/StageView.vue"),
+    beforeRouteEnter: (to, from, next) => {
+      if (
+        store.getters["booking/getSelectedMatch"] &&
+        store.getters["booking/getSelectedStadiumMap"]
+      ) {
+        return next();
+      } else {
+        return next("/");
+      }
+    },
   },
   {
     path: "/ticket",
     name: "ticket",
     component: () =>
       import(/* webpackChunkName: "stage" */ "../views/TicketView.vue"),
+    // beforeRouteEnter: (to, from, next) => {
+    //   if (
+    //     store.getters["booking/getSelectedMatch"] &&
+    //     store.getters["booking/getSelectedStadiumMap"] &&
+    //     store.getters["booking/getSelectedSeat"]
+    //   ) {
+    //     return next();
+    //   }
+    //   next("/");
+    // },
   },
   {
     path: "/about",

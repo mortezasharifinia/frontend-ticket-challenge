@@ -54,7 +54,6 @@ export default {
   },
   methods: {
     showMatchPicture(status) {
-      console.log(status);
       this.matchStatus = status;
       this.matchPictureState = true;
     },
