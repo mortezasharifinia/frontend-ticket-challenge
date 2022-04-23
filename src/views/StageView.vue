@@ -16,7 +16,6 @@
 <script>
 import StageRows from "@/components/stage/StageRows.vue";
 import StageSeats from "@/components/stage/StageSeats.vue";
-// import { v4 as uuidv4 } from "uuid";
 export default {
   components: {
     StageRows,
@@ -36,24 +35,9 @@ export default {
     stageSeats() {
       return this.$store.getters["booking/getStageSeats"] || [];
     },
-    // stageRowsWithUUID() {
-    //   return this.stageSeats.map(() => {
-    //     return {
-    //       id: uuidv4(),
-    //     };
-    //   });
-    // },
     stageSeatsByRow() {
       return this.stageSeats[this.selectedRow] || [];
     },
-    // stageSeatsByRow() {
-    //   return this.stageSeats[this.selectedRow].map((seat) => {
-    //     return {
-    //       state: !!seat,
-    //       id: uuidv4(),
-    //     };
-    //   });
-    // },
   },
   methods: {
     rowSelected(row) {

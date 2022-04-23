@@ -48,11 +48,16 @@ export default {
             mobileNumber: this.mobileNumber,
             verificationCode: this.verificationCode,
           });
+          this.$cookies.set("mobileNumber", this.mobileNumber);
           this.$router.push({
             name: "home",
           });
         } else {
           this.error = true;
+          this.$store.commit("global/SET_ERRORS", {
+            type: "error",
+            message: "کد تایید نادرست می باشد",
+          });
         }
       } else {
         this.error = true;

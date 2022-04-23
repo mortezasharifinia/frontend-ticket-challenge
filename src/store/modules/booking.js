@@ -1,4 +1,5 @@
 import router from "@/router";
+import cookies from "vue-cookies";
 import { booking } from "@/services/booking";
 
 // ##################################################################################
@@ -145,6 +146,7 @@ const actions = {
         },
         { root: true }
       );
+      cookies.remove("mobileNumber");
     });
   },
 };
