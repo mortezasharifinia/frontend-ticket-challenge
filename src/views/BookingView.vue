@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     stadiumMaps() {
-      return this.$store.getters["booking/getStadiumMaps"];
+      return this.$store.getters["booking/getStadiumMaps"].slice(0, 10);
     },
   },
   methods: {

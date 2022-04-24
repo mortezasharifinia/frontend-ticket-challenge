@@ -1,14 +1,15 @@
 <template>
   <div class="stadium">
-    <div
+    <button
       v-for="(map, index) in stadiumMaps"
       :key="map.id"
       class="stage"
       :class="`stage-${index + 1}`"
+      :disabled="map.status == 'unavailable'"
       @click="$emit('selected-stage', map)"
     >
       {{ index + 1 }}
-    </div>
+    </button>
     <!-- <div class="stage stage-2">2</div>
     <div class="stage stage-3">3</div>
     <div class="stage stage-4">4</div>
@@ -47,8 +48,9 @@ export default {
 
 .stage {
   position: absolute;
-  background-color: #fff;
+  background-color: var(--background-primary);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border: none;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -65,6 +67,11 @@ export default {
 .stage:active {
   background-color: var(--warning);
   border: 3px solid var(--secondary);
+}
+
+.stage:disabled {
+  cursor: not-allowed;
+  background-color: var(--sub-primary);
 }
 
 .stage-1 {
