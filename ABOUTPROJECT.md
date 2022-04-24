@@ -22,6 +22,7 @@ The user can buy the ticket after choosing the stage (map_id, x as rows, and y a
 * token, save as cookies with 30 minutes expired time
 * error handled by snack bar
 * request time consumption handled by the loader
+* retry request twice to get a response
 * page transition (fade effect)
 * ticket token is shown as a barcode
 * principle design is based on morph design `https://morphdesign.io/`
